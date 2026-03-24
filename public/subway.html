@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>지하철 도착 정보</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=SUIT:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="panel">
+        <header class="hero">
+          <div class="toolbar">
+            <p class="hero-title">Subway</p>
+            <button
+              id="refreshBtn"
+              class="icon-refresh"
+              type="button"
+              aria-label="새로고침"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path
+                  d="M20 12a8 8 0 1 1-2.34-5.66"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M20 4v6h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </header>
+
+        <div id="list" class="arrival-list" aria-live="polite"></div>
+        <p id="updatedAt" class="updated-at"></p>
+      </section>
+    </main>
+
+    <script src="/static/subway.js"></script>
+  </body>
+</html>
