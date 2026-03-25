@@ -7,6 +7,9 @@ const STATIONS = [
   { id: "SES2646", name: "6호선 태릉입구역 (화랑대역 방면)" },
 ];
 
+const AUTO_REFRESH_MS = 60 * 1000;
+let isLoading = false;
+
 function formatLeftTime(seconds) {
   const safeSeconds = Math.max(0, Number(seconds) || 0);
   const min = Math.floor(safeSeconds / 60);
@@ -58,6 +61,11 @@ function renderStationSection(station, sectionIndex) {
 }
 
 async function loadSubwayArrivals() {
+  if (isLoading) {
+    return;
+  }
+
+  isLoading = true;
   refreshBtn.classList.add("is-loading");
 
   try {
@@ -96,8 +104,10 @@ async function loadSubwayArrivals() {
     updatedAtEl.textContent = "";
   } finally {
     refreshBtn.classList.remove("is-loading");
+    isLoading = false;
   }
 }
 
 refreshBtn.addEventListener("click", loadSubwayArrivals);
 loadSubwayArrivals();
+setInterval(loadSubwayArrivals, AUTO_REFRESH_MS);

@@ -7,6 +7,9 @@ const BUS_STOPS = [
   { id: "BS226801" },
 ];
 
+const AUTO_REFRESH_MS = 60 * 1000;
+let isLoading = false;
+
 function formatLeftTime(seconds) {
   const safeSeconds = Math.max(0, Number(seconds) || 0);
   const min = Math.floor(safeSeconds / 60);
@@ -109,6 +112,11 @@ function renderBusSection(bus, sectionIndex) {
 }
 
 async function loadBusArrivals() {
+  if (isLoading) {
+    return;
+  }
+
+  isLoading = true;
   refreshBtn.classList.add("is-loading");
 
   try {
@@ -163,8 +171,10 @@ async function loadBusArrivals() {
     updatedAtEl.textContent = "";
   } finally {
     refreshBtn.classList.remove("is-loading");
+    isLoading = false;
   }
 }
 
 refreshBtn.addEventListener("click", loadBusArrivals);
 loadBusArrivals();
+setInterval(loadBusArrivals, AUTO_REFRESH_MS);
