@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>지하철 도착 정보</title>
+    <title>학식 정보</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,7 +17,7 @@
       <section class="panel">
         <header class="hero">
           <div class="toolbar">
-            <p class="hero-title">Subway</p>
+            <p class="hero-title">Food</p>
             <button
               id="refreshBtn"
               class="icon-refresh"
@@ -47,14 +47,32 @@
 
         <div id="list" class="arrival-list" aria-live="polite"></div>
         <p id="updatedAt" class="updated-at"></p>
-        <div style="text-align: center; margin-top: 16px; padding-bottom: 20px;">
-          <a href="/bus" style="color: #3182f6; text-decoration: none; font-weight: 500; margin: 0 10px;">버스 확인하기</a>
-          <span style="color: #cbd5e1;">|</span>
-          <a href="/food" style="color: #3182f6; text-decoration: none; font-weight: 500; margin: 0 10px;">학식 확인하기</a>
+        <div style="text-align: center; margin-top: 16px">
+          <a
+            href="/bus"
+            style="
+              color: #3182f6;
+              text-decoration: none;
+              font-weight: 500;
+              margin: 0 10px;
+            "
+            >버스 확인하기</a
+          >
+          <span style="color: #cbd5e1">|</span>
+          <a
+            href="/food"
+            style="
+              color: #3182f6;
+              text-decoration: none;
+              font-weight: 500;
+              margin: 0 10px;
+            "
+            >학식 확인하기</a
+          >
         </div>
       </section>
     </main>
 
-    <script src="/static/subway.js"></script>
+    <script src="/static/food.js"></script>
   </body>
 </html>
